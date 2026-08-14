@@ -1,11 +1,10 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <!-- 메인 페이지 -->
   <url>
     <loc>https://deajinhanayak.com/</loc>
-    <lastmod>2024-05-24</lastmod> <!-- 파일 생성일로 수정하세요 -->
+    <lastmod>2026-08-14</lastmod> <!-- 최종 업데이트 날짜로 수정 -->
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
@@ -13,15 +12,15 @@
   <!-- 블로그 목록 -->
   <url>
     <loc>https://deajinhanayak.com/blog</loc>
-    <lastmod>2024-05-24</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   
-  <!-- 블로그 상세: 정품 구별법 -->
+  <!-- 블로그 상세: 정품 구별 가이드 -->
   <url>
     <loc>https://deajinhanayak.com/blog/authentic-guide</loc>
-    <lastmod>2024-05-24</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -29,7 +28,7 @@
   <!-- 블로그 상세: 시알리스 vs 비아그라 -->
   <url>
     <loc>https://deajinhanayak.com/blog/cialis-vs-viagra</loc>
-    <lastmod>2024-05-24</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -37,7 +36,7 @@
   <!-- 이용약관 -->
   <url>
     <loc>https://deajinhanayak.com/terms</loc>
-    <lastmod>2024-05-24</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
@@ -45,7 +44,7 @@
   <!-- 개인정보처리방침 -->
   <url>
     <loc>https://deajinhanayak.com/privacy</loc>
-    <lastmod>2024-05-24</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
