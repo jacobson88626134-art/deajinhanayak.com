@@ -497,68 +497,33 @@
     </main>
 
     <!-- 푸터 -->
-    <footer class="bg-slate-900 text-slate-400 py-16 mt-auto border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- 푸터 상단 레이아웃 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-                
-                <!-- 브랜드 소개 -->
-                <div class="col-span-1 lg:col-span-2">
-                    <span class="text-3xl font-black text-white tracking-tight mb-4 block flex items-center gap-2">
-                        <span>💖</span> 러브약국
-                    </span>
-                    <p class="text-slate-500 leading-relaxed max-w-sm mb-6 font-medium">
-                        당신의 밤을 바꾸는 확실한 선택. 러브약국은 100% 오리지널 정품만을 취급하며, 철저한 비밀 배송과 프라이버시 보호를 최우선으로 생각하는 프리미엄 스토어입니다.
-                    </p>
-                    <div class="flex gap-3">
-                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer shadow-lg">💬</div>
-                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer shadow-lg">🔒</div>
-                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-indigo-600 hover:text-white transition-all cursor-pointer shadow-lg">⚡</div>
-                    </div>
-                </div>
-                
-                <!-- 퀵 링크 -->
-                <div>
-                    <h4 class="text-white font-bold mb-5 text-lg">Quick Links</h4>
-                    <ul class="space-y-3 text-sm font-medium">
-                        <li><a href="#store" class="hover:text-indigo-400 transition-colors">프리미엄 스토어</a></li>
-                        <li><a href="#effects" class="hover:text-indigo-400 transition-colors">효과 및 효능 안내</a></li>
-                        <li><a href="#reviews" class="hover:text-indigo-400 transition-colors">생생 고객후기</a></li>
-                        <li><a href="/blog" class="hover:text-indigo-400 transition-colors">공식 블로그</a></li>
-                    </ul>
-                </div>
+     <div id="footer-placeholder"></div>
 
-                <!-- 고객 지원 -->
-                <div>
-                    <h4 class="text-white font-bold mb-5 text-lg">Customer Care</h4>
-                    <ul class="space-y-3 text-sm font-medium">
-                        <li><a href="#faq" class="hover:text-indigo-400 transition-colors">자주 묻는 질문 (FAQ)</a></li>
-                        <li><a href="#side-effects" class="hover:text-indigo-400 transition-colors">부작용 및 주의사항</a></li>
-                        <li class="flex items-center gap-2 mt-5 text-slate-300 bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
-                            <span class="bg-indigo-500/20 text-indigo-400 font-bold px-2 py-1 rounded-lg text-xs">CS</span> 
-                            <span>24시간 비밀 상담 지원</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- 푸터 하단 카피라이트 및 제휴업체 -->
-            <div class="pt-8 border-t border-slate-800/80 flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-slate-500 font-medium">
-                <div class="flex flex-col items-center lg:items-start gap-2 text-center lg:text-left">
-                    <p>본 사이트는 정보 제공을 목적으로 하며, 당사 시스템 업데이트 기간 중에는 제휴 업체를 통한 안전 결제를 지원합니다.</p>
-                    <p>Copyright © 2026 deajinhanayak.com. All rights reserved.</p>
-                </div>
-                <!-- 제휴업체 외부 링크 -->
-                <div class="flex flex-wrap items-center justify-center gap-3 bg-slate-800/50 px-5 py-2.5 rounded-2xl md:rounded-full border border-slate-700/50">
-                    <span class="text-slate-400 font-bold">제휴업체</span>
-                    <span class="w-1 h-1 bg-slate-600 rounded-full hidden md:block"></span>
-                    <a href="https://nakwonyakguk.com" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">도원유통 낙원약국</a>
-                    <span class="w-1 h-1 bg-slate-600 rounded-full hidden md:block"></span>
-                    <a href="https://deajinhana.top" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">대진유통 하나약국</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+
+
+    <!-- 2. 공통 푸터 불러오기 자바스크립트 -->
+
+    <script>
+
+        fetch('/footer.html')
+
+            .then(response => {
+
+                if (!response.ok) throw new Error('푸터 파일을 찾을 수 없습니다.');
+
+                return response.text();
+
+            })
+
+            .then(data => {
+
+                document.getElementById('footer-placeholder').innerHTML = data;
+
+            })
+
+            .catch(error => console.error('푸터 로딩 에러:', error));
+
+    </script>
 
     <!-- 커스텀 모달 창 (알럿 대신 사용) -->
     <div id="order-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md transition-opacity">
