@@ -4,7 +4,7 @@
   <!-- 메인 페이지 -->
   <url>
     <loc>https://deajinhanayak.com/</loc>
-    <lastmod>2026-08-14</lastmod> <!-- 최종 업데이트 날짜로 수정 -->
+    <lastmod>2026-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- 블로그 목록 -->
   <url>
     <loc>https://deajinhanayak.com/blog</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- 블로그 상세: 정품 구별 가이드 -->
   <url>
     <loc>https://deajinhanayak.com/blog/authentic-guide</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
@@ -28,25 +28,17 @@
   <!-- 블로그 상세: 시알리스 vs 비아그라 -->
   <url>
     <loc>https://deajinhanayak.com/blog/cialis-vs-viagra</loc>
-    <lastmod>2026-08-14</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
-  
-  <!-- 이용약관 -->
+
+  <!-- 블로그 상세: 프릴리지 사용법 -->
   <url>
-    <loc>https://deajinhanayak.com/terms</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  
-  <!-- 개인정보처리방침 -->
-  <url>
-    <loc>https://deajinhanayak.com/privacy</loc>
-    <lastmod>2026-08-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
+    <loc>https://deajinhanayak.com/blog/priligy-usage</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
   </url>
   
 </urlset>
