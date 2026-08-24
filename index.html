@@ -154,14 +154,27 @@
                         <span class="text-3xl">💖</span> 러브약국
                     </a>
                 </div>
-                <!-- PC 네비게이션 (새로운 메뉴 구조) -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#store" class="text-slate-600 hover:text-indigo-600 font-bold text-[15px] transition-colors">스토어</a>
-                    <a href="#effects" class="text-slate-600 hover:text-indigo-600 font-bold text-[15px] transition-colors">효과 및 효능</a>
-                    <a href="#side-effects" class="text-slate-600 hover:text-indigo-600 font-bold text-[15px] transition-colors">부작용/주의사항</a>
-                    <a href="#reviews" class="text-slate-600 hover:text-indigo-600 font-bold text-[15px] transition-colors">고객후기</a>
-                    <a href="#faq" class="text-slate-600 hover:text-indigo-600 font-bold text-[15px] transition-colors">FAQ</a>
-                </nav>
+               <!-- 세련된 글래스 필(Pill) 스타일 PC 네비게이션 -->
+<nav class="hidden md:flex items-center gap-1 bg-slate-100/80 backdrop-blur-md p-1.5 rounded-full border border-slate-200/60 shadow-inner">
+    <a href="#store" class="px-4 py-2 rounded-full text-slate-700 hover:text-indigo-600 hover:bg-white hover:shadow-sm font-bold text-[14px] transition-all duration-200 flex items-center gap-1.5">
+        <span>🛍️</span> 스토어
+    </a>
+    <a href="#effects" class="px-4 py-2 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white hover:shadow-sm font-bold text-[14px] transition-all duration-200">
+        효과 및 효능
+    </a>
+    <a href="#side-effects" class="px-4 py-2 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white hover:shadow-sm font-bold text-[14px] transition-all duration-200">
+        부작용/주의사항
+    </a>
+    <a href="#reviews" class="px-4 py-2 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white hover:shadow-sm font-bold text-[14px] transition-all duration-200">
+        고객후기
+    </a>
+    <a href="#faq" class="px-4 py-2 rounded-full text-slate-600 hover:text-indigo-600 hover:bg-white hover:shadow-sm font-bold text-[14px] transition-all duration-200">
+        FAQ
+    </a>
+    <a href="/blog" class="px-4 py-2 rounded-full text-indigo-600 hover:bg-indigo-50 font-bold text-[14px] transition-all duration-200 flex items-center gap-1">
+        <span>✍️</span> 공식 블로그
+    </a>
+</nav>
                 <!-- 모바일 햄버거 버튼 -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-slate-800 p-2 focus:outline-none bg-slate-100 rounded-full">
