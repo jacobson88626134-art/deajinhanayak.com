@@ -997,6 +997,10 @@
 
             const productInfo = `${currentSelectedProduct} (${currentSelectedPrice})`;
 
+            // 주문 접수 일시 생성 (YYYY-MM-DD HH:mm:ss)
+            const now = new Date();
+            const orderDateTime = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            
             // 전송할 텍스트 조합 (러브약국 브랜드명 적용)
             const messageText = `[신규주문] ${productInfo} | 수령인: ${userName} | 연락처: ${userPhone} | 주소: ${userAddress} | 요청: ${userMemo} | 일시: ${orderDateTime} | 러브약국`;
 
