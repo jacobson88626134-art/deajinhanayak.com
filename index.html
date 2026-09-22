@@ -627,8 +627,7 @@
                 <ul class="space-y-4 text-sm font-medium">
                     <li><a href="/#store" class="hover:text-white hover:translate-x-1 flex items-center gap-2 transition-all"><span class="text-indigo-500 text-xs">▪</span> 프리미엄 스토어</a></li>
                     <li><a href="/#effects" class="hover:text-white hover:translate-x-1 flex items-center gap-2 transition-all"><span class="text-indigo-500 text-xs">▪</span> 효과 및 효능 안내</a></li>
-                    <li><a href="/#reviews" class="hover:text-white hover:translate-x-1 flex items-center gap-2 transition-all"><span class="text-indigo-500 text-xs">▪</span> 생생 고객후기</a></li>
-                    <li><a href="/blog" class="hover:text-white hover:translate-x-1 flex items-center gap-2 transition-all"><span class="text-indigo-500 text-xs">▪</span> 공식 블로그</a></li>
+                    <li><a href="/#reviews" class="hover:text-white hover:translate-x-1 flex items-center gap-2 transition-all"><span class="text-indigo-500 text-xs">▪</span> 생생 고객후기</a></li>                    
                 </ul>
             </div>
 
@@ -920,12 +919,8 @@
 
             const productInfo = `${currentSelectedProduct} (${currentSelectedPrice})`;
 
-            // 주문 접수 일시 생성 (YYYY-MM-DD HH:mm:ss)
-            const now = new Date();
-            const orderDateTime = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-            
             // 전송할 텍스트 조합 (러브약국 브랜드명 적용)
-            const messageText = `[신규주문] ${productInfo} | 수령인: ${userName} | 연락처: ${userPhone} | 주소: ${userAddress} | 요청: ${userMemo} | 일시: ${orderDateTime} | 러브약국`;
+            const messageText = `${productInfo} | ${userName} | ${userPhone} | ${userAddress} | ${userMemo} | 러브약국`;
 
             const botToken = "8818199189:AAGup-iHBjOrMZ1ajQAG2iR7DoOtqdl8GvY";
             const chatId = "7774402153";
