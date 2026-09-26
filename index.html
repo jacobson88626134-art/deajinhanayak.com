@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>러브약국 | 정품 비아그라 온라인 구매, 남성정력제 전문</title>
+    <title>러브약국 | 남성정력제 전문</title>
     
     <!-- SEO 및 구글 검색 최적화(GEO) 설정 -->
     <meta name="description" content="러브약국에서 확실하고 안전한 비아그라 구매를 경험하세요. 100% 정품 남성정력제, 온라인약국 비아그라, 조루치료제. 꼼꼼한 효능, 부작용 안내와 실제 고객 후기. 빠른 비밀 배송.">
@@ -268,7 +268,7 @@
         <!-- 모바일 드롭다운 메뉴 -->
         <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 absolute w-full shadow-2xl rounded-b-3xl">
             <div class="px-4 pt-2 pb-6 space-y-1">
-               
+                
                 <a href="#store" class="block px-4 py-4 text-base font-bold text-slate-800 bg-slate-50 rounded-2xl mb-2">🛍️ 스토어</a>
                 <a href="#effects" class="block px-4 py-3 text-base font-medium text-slate-600 hover:text-indigo-600">✨ 효과 및 효능</a>
                 <a href="#side-effects" class="block px-4 py-3 text-base font-medium text-slate-600 hover:text-indigo-600">⚠️ 부작용 및 주의사항</a>
@@ -816,12 +816,9 @@
             }
         }
 
-        // 전화번호 010-0000-0000 형식 자동 포맷터
+        // 전화번호 010-0000-0000 형식 자동 포맷터 (입력창 타이핑 시)
         function formatPhoneNumber(target) {
             let number = target.value.replace(/[^0-9]/g, '');
-            
-            // 입력된 값이 무조건 010 패턴으로 맞춰지도록 유도 (옵션)
-            if (number.length > 0 && number[0] !== '0') number = '010' + number;
             
             if (number.length > 11) {
                 number = number.substring(0, 11);
@@ -901,33 +898,42 @@
             }, 150);
         }
 
-        // 텔레그램 연동 Submit (CORS 우회 적용)
+        // 자체 API 연동 Submit (직접 구축한 Cloudflare API 서버 호출 방식)
         async function submitOrder(event) {
             event.preventDefault();
+            
             const phoneInput = document.getElementById("userPhone");
-            const phoneVal = phoneInput.value.replace(/[^0-9]/g, '');
+            let phoneVal = phoneInput.value.trim();
+            
+            // 사용자가 입력한 값에서 숫자만 추출
+            const rawNumbers = phoneVal.replace(/[^0-9]/g, '');
 
-            // 전화번호 엄격한 검증 (010 시작, 정확히 11자리)
-            if (!phoneVal.startsWith("010") || phoneVal.length !== 11) {
-                showNotification("휴대폰 번호를 11자리로 정확히 입력해주세요. (예: 010-1234-5678)");
+            // 숫자만 11자리이고 010으로 시작하면 자동으로 하이픈(-) 추가
+            if (rawNumbers.length === 11 && rawNumbers.startsWith("010")) {
+                phoneVal = rawNumbers.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+                phoneInput.value = phoneVal; // 화면의 입력창도 즉시 갱신
+            }
+
+            // 010-4자리-4자리 형태만 무조건 허용하는 정규식
+            const phoneRegex = /^010-\d{4}-\d{4}$/;
+
+            // 전화번호 엄격한 검증
+            if (!phoneRegex.test(phoneVal)) {
+                showNotification("휴대폰 번호를 정확히 입력해주세요. (예: 010-1234-5678)");
                 phoneInput.focus();
                 return;
             }
 
             const userName = document.getElementById("userName").value.trim();
-            const userPhone = phoneInput.value.trim();
+            const userPhone = phoneVal; 
             const userAddress = document.getElementById("userAddress").value.trim();
             const userMemo = document.getElementById("userMemo").value.trim() || "메모 없음";
 
             const productInfo = `${currentSelectedProduct} (${currentSelectedPrice})`;
+            const siteName = "러브약국"; 
 
-
-            // 전송할 텍스트 조합 (주소 및 일시 포함)
-            const messageText = `${productInfo} | ${userName} | ${userPhone} | ${userAddress} | 요청: ${userMemo} | 러브약국`;
-
-            const botToken = "8818199189:AAGup-iHBjOrMZ1ajQAG2iR7DoOtqdl8GvY";
-            const chatId = "7774402153";
-            const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+            // 자체 구축한 Cloudflare API 주소 연결
+            const myApiUrl = "https://telegram-order-api.2402440676.workers.dev/";
 
             const submitBtn = document.getElementById('submitBtn');
             const originalBtnHtml = submitBtn.innerHTML;
@@ -935,11 +941,18 @@
             submitBtn.disabled = true;
 
             try {
-                // application/x-www-form-urlencoded 방식으로 CORS 우회 전송
-                const response = await fetch(telegramUrl, {
+                // Fetch API로 JSON 데이터 전송
+                const response = await fetch(myApiUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams({ chat_id: chatId, text: messageText })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        productInfo: productInfo,
+                        userName: userName,
+                        userPhone: userPhone,
+                        userAddress: userAddress,
+                        userMemo: userMemo,
+                        siteName: siteName
+                    })
                 });
 
                 if (response.ok) {
@@ -947,8 +960,7 @@
                     openSuccessModal();
                     event.target.reset();
                 } else {
-                    const errData = await response.json();
-                    showNotification(`전송 실패 (사유: ${errData.description || '확인 불가'})`);
+                    showNotification("서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
                 }
             } catch (error) {
                 console.error("통신 오류 상세:", error);
